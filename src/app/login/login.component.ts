@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   error: boolean = false;
   messages: any = [];
+  processing: boolean = false;
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.getRawValue());
+    this.processing = true;
     const formdata = this.form.getRawValue();
     const data = {
       email: formdata.email,
@@ -53,11 +54,13 @@ export class LoginComponent implements OnInit {
         console.log('success');
         console.log(result);
         localStorage.setItem('token', result.access_token);
+        this.processing = false;
         this.router.navigate(['/']);
       },
       (errors) => {
         this.error = true;
         this.messages = [];
+        this.processing = false;
         if (errors.error.error) {
           console.log(errors.error.error);
           this.messages.push(errors.error.error);

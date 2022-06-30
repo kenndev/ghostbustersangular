@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit {
   }
 
   error: boolean = false;
+  processing: boolean = false;
   messages: any = [];
 
   ngOnInit(): void {
@@ -46,6 +47,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    this.processing = true;
     console.log(this.form.getRawValue());
     const formdata = this.form.getRawValue();
     const data = {
@@ -65,6 +67,7 @@ export class RegisterComponent implements OnInit {
         console.log('success');
         console.log(result);
         localStorage.setItem('token', result.access_token);
+        this.processing = false;
         this.router.navigate(['/']);
       },
       (error) => {
@@ -74,7 +77,7 @@ export class RegisterComponent implements OnInit {
         this.messages = [];
         for (let [key, value] of Object.entries(error.error.errors)) {
           console.log(value[0]);
-          
+          this.processing = false;
           this.messages.push(value[0]);
         }
       }
