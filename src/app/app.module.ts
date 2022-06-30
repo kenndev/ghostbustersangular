@@ -13,7 +13,6 @@ import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { FooterComponent } from './footer/footer.component';
 import { SubscribeComponent } from './subscribe/subscribe.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { JwtModule } from '@auth0/angular-jwt';
 import { ProfileComponent } from './profile/profile.component';
 import { LayoutComponent } from './layout/layout.component';
 
@@ -36,8 +35,7 @@ import { LayoutComponent } from './layout/layout.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    JwtModule
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
