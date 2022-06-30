@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
       Authorization: 'Bearer ' + localStorage.getItem('token'),
     });
 
-    this.http.post('https://ghostbustermovies.herokuapp.com/api/update-profile', data).subscribe(
+    this.http.post('https://ghostbustermovies.herokuapp.com/api/update-profile', data, { headers: reqHeader }).subscribe(
       (result: any) => {
         // console.log('success');
         // console.log(result.message);
