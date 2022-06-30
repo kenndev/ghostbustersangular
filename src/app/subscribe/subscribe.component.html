@@ -1,6 +1,18 @@
 <div
   class="container font-sans bg-green-100 rounded mt-8 p-4 md:p-24 text-center mb-10"
 >
+  <h3
+    *ngIf="success"
+    class="font-bold break-normal text-green-800 text-base md:text-2xl p-4"
+  >
+    <span *ngFor="let message of messages">{{ message }}</span>
+  </h3>
+  <h3
+    *ngIf="error"
+    class="font-bold break-normal text-red-800 text-base md:text-2xl p-4"
+  >
+    <span *ngFor="let message of messages">{{ message }}</span>
+  </h3>
   <h2 class="font-bold break-normal text-2xl md:text-4xl">
     Subscribe to Ghostbusters
   </h2>
