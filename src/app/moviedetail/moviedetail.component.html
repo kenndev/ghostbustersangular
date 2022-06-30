@@ -1,0 +1,73 @@
+<div class="bg-white font-sans leading-normal tracking-normal">
+  <!--Nav-->
+  <nav class="bg-gray-900 p-4 mt-0 w-full">
+    <div class="container mx-auto flex items-center">
+      <div class="flex text-white font-extrabold">
+        <a
+          class="flex text-white text-base no-underline hover:text-white hover:no-underline"
+          [routerLink]="['/']"
+        >
+          👻
+          <span class="hidden w-0 md:w-auto md:block pl-1"
+            >Ghostbusters Movies</span
+          >
+        </a>
+      </div>
+      <div class="flex pl-4 text-sm">
+        <ul
+          class="list-reset flex justify-between flex-1 md:flex-none items-center"
+        >
+          <li class="mr-2">
+            <a
+              class="inline-block py-2 px-2 text-white no-underline"
+              [routerLink]="['/']"
+              >HOME</a
+            >
+          </li>
+          <li class="mr-2">
+            <a
+              class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-2"
+              href="#"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--image-->
+  <div
+    class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded"
+    style="background-image: url('{{ imageSrc }}'); height: 75vh;"
+  ></div>
+
+  <!--Container-->
+  <div class="container max-w-5xl mx-auto -mt-32">
+    <div class="mx-0 sm:mx-6">
+      <div
+        class="bg-gray-200 w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal"
+        style="font-family: Georgia, serif"
+      >
+        <!--Title-->
+        <div class="text-center">
+          <h3 class="font-bold break-normal text-3xl">
+            {{ movie["title"] }}
+          </h3>
+        </div>
+        <!--Lead Para-->
+        <p class="py-6">
+          {{ movie["overview"] }}
+        </p>
+
+        <!--/ Post Content-->
+      </div>
+
+      <!--Subscribe-->
+      <app-subscribe></app-subscribe>
+      <!-- /Subscribe-->
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
