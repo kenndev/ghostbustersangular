@@ -78,10 +78,12 @@ export class ProfileComponent implements OnInit {
       (result: any) => {
         // console.log('success');
         // console.log(result.message);
+        this.error = false;
         this.success = result.message;
       },
       (errors) => {
         this.error = true;
+        this.success = false;
         this.messages = [];
         for (let [key, value] of Object.entries(errors.error.errors)) {
           console.log(value[0]);
